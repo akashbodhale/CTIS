@@ -33,7 +33,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
   },[]);
 
   const fetchParticipants = async () => {
-    const res = await fetch(`http://localhost:3000/api/participants/${id}`);
+    const res = await fetch(`https://ctis-dged.vercel.app/api/participants/${id}`);
     const data = await res.json();
     setParticipants(data);
   };
@@ -70,7 +70,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
   };
 
   const remove = async (participantId: number) => {
-    await fetch(`http://localhost:3000/api/participants/${participantId}`, {
+    await fetch(`https://ctis-dged.vercel.app/api/participants/${participantId}`, {
       method: 'DELETE',
     });
     fetchParticipants();
@@ -81,7 +81,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
         const payload = { ...formData, trialId: Number(id) };
   
     if (isEditing && editingId !== null) {
-      await fetch(`http://localhost:3000/api/participants/${editingId}`, {
+      await fetch(`https://ctis-dged.vercel.app/api/participants/${editingId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...payload, id: editingId }),
@@ -90,7 +90,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
       const maxId = participants.length > 0 ? Math.max(...participants.map(p => p.id)) : 0;
       const newParticipant = { ...payload, id: maxId + 1 };
   
-      await fetch('http://localhost:3000/api/participants', {
+      await fetch('https://ctis-dged.vercel.app/api/participants', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newParticipant),

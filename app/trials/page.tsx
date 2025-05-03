@@ -37,7 +37,7 @@ export default function Trials() {
   }, []);
 
   async function fetchTrials() {
-    const res = await fetch('http://localhost:3000/api/trials');
+    const res = await fetch('https://ctis-dged.vercel.app/api/trials');
     const data = await res.json();
     // const data= [{
     //     "id": 1,
@@ -103,7 +103,7 @@ export default function Trials() {
   async function handleSave() {
     if (isEditing && editingId !== null) {
       const updatedTrial = { ...formData, id: editingId };
-      await fetch(`http://localhost:3000/api/trials/${editingId}`, {
+      await fetch(`https://ctis-dged.vercel.app/api/trials/${editingId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(updatedTrial),
@@ -111,7 +111,7 @@ export default function Trials() {
     } else {
       const maxId = trials.length > 0 ? Math.max(...trials.map((t) => t.id)) : 0;
       const newTrial = { ...formData, id: maxId + 1 };
-      await fetch('http://localhost:3000/api/trials', {
+      await fetch('https://ctis-dged.vercel.app/api/trials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newTrial),
