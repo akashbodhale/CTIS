@@ -1,5 +1,9 @@
 {
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/participants/[id]/route": "app/api/participants/[id]/route.js",
   "/api/login/route": "app/api/login/route.js",
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/page": "app/page.js"
+  "/api/trials/route": "app/api/trials/route.js",
+  "/page": "app/page.js",
+  "/trials/page": "app/trials/page.js",
+  "/participants/[id]/page": "app/participants/[id]/page.js"
 }

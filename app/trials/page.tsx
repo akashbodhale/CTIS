@@ -37,20 +37,20 @@ export default function Trials() {
   }, []);
 
   async function fetchTrials() {
-    // const res = await fetch('http://localhost:3000/api/trials');
-    // const data = await res.json();
-    const data= [{
-        "id": 1,
-        "title": "COVID-19 Vaccine Trialssss",
-        "description": "Testing efficacy of new COVID-19 vaccine.",
-        "condition": "COVID-19",
-        "treatment": "Vaccine ABC",
-        "phase": "Phase III",
-        "status": "Ongoing",
-        "startDate": new Date("2024-01-01T00:00:00.000Z"),
-        "endDate": new Date("2024-12-31T00:00:00.000Z"),
-       "location": "New York City"
-      }];
+    const res = await fetch('http://localhost:3000/api/trials');
+    const data = await res.json();
+    // const data= [{
+    //     "id": 1,
+    //     "title": "COVID-19 Vaccine Trialssss",
+    //     "description": "Testing efficacy of new COVID-19 vaccine.",
+    //     "condition": "COVID-19",
+    //     "treatment": "Vaccine ABC",
+    //     "phase": "Phase III",
+    //     "status": "Ongoing",
+    //     "startDate": new Date("2024-01-01T00:00:00.000Z"),
+    //     "endDate": new Date("2024-12-31T00:00:00.000Z"),
+    //    "location": "New York City"
+    //   }];
     setTrials(data);
   }
 
