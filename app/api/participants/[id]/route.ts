@@ -2,20 +2,26 @@ import { connectMongoDB } from "@/dbConfig/dbConfig";
 import { Participant } from "@/models/Participant";
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(request: NextRequest,{params}:{params:{id:string}}) {
+
+export async function GET(
+  request: NextRequest,
+  { params }: { params: Promise<{ id: string }> }
+) {
   const { id } = await params;
 
   await connectMongoDB();
-  const participant = await Participant.find({ trialId: Number(id) });
 
-  if(!participant){
-     return new Response('Product not found!!',{status:200})
-    }
-    
-  return NextResponse.json(participant, { status: 200 });
+  const participants = await Participant.find({ trialId: Number(id) });
+
+  if (participants.length === 0) {
+    return new NextResponse('No participants found.', { status: 404 });
+  }
+
+  return NextResponse.json(participants, { status: 200 });
 }
 
-export async function PUT(request: NextRequest,{params}:{params:{id:number}})
+
+export async function PUT(request: NextRequest,{ params }: { params: Promise<{ id: string }>})
 {
     const { id } = await params;
     await connectMongoDB();
