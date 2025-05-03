@@ -2,10 +2,20 @@
 
 import { use, useEffect, useState } from 'react';
 
+interface Participant {
+  id: number;
+  name: string;
+  dob: string;
+  gender: string;
+  contact: string;
+  medicalHistory: string;
+  trialId: number;
+}
+
 export default function ParticipantPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
 
-  const [participants, setParticipants] = useState<any[]>([]);
+  const [participants, setParticipants] = useState<Participant[]>([]);
   const [showForm, setShowForm] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const[isRemove,setRemove ]=useState(false);
@@ -20,7 +30,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
 
   useEffect(() => {
     fetchParticipants();
-  }, []);
+  },[]);
 
   const fetchParticipants = async () => {
     const res = await fetch(`http://localhost:3000/api/participants/${id}`);
@@ -46,7 +56,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
     setShowForm(true);
   };
 
-  const edit = (p: any) => {
+  const edit = (p: Participant) => {
     setFormData({
       name: p.name,
       dob: p.dob?.split('T')[0] ?? '',
@@ -60,10 +70,10 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
   };
 
   const remove = async (participantId: number) => {
-    // await fetch(`http://localhost:3000/api/participants/${participantId}`, {
-    //   method: 'DELETE',
-    // });
-    // fetchParticipants();
+    await fetch(`http://localhost:3000/api/participants/${participantId}`, {
+      method: 'DELETE',
+    });
+    fetchParticipants();
     setRemove(true);
   };
 
@@ -160,7 +170,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
           </button>
         </div>
       )}
-      {isRemove && (<div className='bg-red-200'> Need authorization from GOVT. This action isn't Allowed. </div>)}
+      {isRemove && (<div className='bg-red-200'>{"Need authorization from GOVT. This action isn't Allowed."} </div>)}
 
       <table className="table-auto w-full border-collapse border border-gray-300">
         <thead>

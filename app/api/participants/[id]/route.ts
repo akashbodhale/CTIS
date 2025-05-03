@@ -15,11 +15,11 @@ export async function GET(request: NextRequest,{params}:{params:{id:string}}) {
   return NextResponse.json(participant, { status: 200 });
 }
 
-export async function PUT(request: NextRequest,{params}:{params:{id:Number}})
+export async function PUT(request: NextRequest,{params}:{params:{id:number}})
 {
     const { id } = await params;
     await connectMongoDB();
-    const trials = await Participant.findOne({id});
+    // const trials = await Participant.findOne({id});
     const body= await request.json();
     const updatedparticipant = await Participant.findOneAndUpdate(
       { id: Number(id) },   
@@ -39,8 +39,8 @@ export async function PUT(request: NextRequest,{params}:{params:{id:Number}})
 
 }
 
-export async function DELETE(request: NextRequest,{params}:{params:{id:number}})
-{
-    const message: string ='This is Expensive operation at this moment can\'t do it in this feature';
-    return new Response(message,{status:200})
-}
+// export async function DELETE(request: NextRequest,{params}:{params:{id:number}})
+// {
+//     const message: string ='This is Expensive operation at this moment can\'t do it in this feature';
+//     return new Response(message,{status:200})
+// }

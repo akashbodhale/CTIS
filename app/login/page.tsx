@@ -3,6 +3,7 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {useRouter} from 'next/navigation';
+// import Image from 'next/image';
 
 export  default function LoginPage(){
     const[user,setUser]=useState({
@@ -43,8 +44,11 @@ export  default function LoginPage(){
         
             console.log('Login success');
             router.push('/trials');
-          } catch (error: any) {
-            console.error('Login error:', error.message || error);
+          } catch (error) {
+            if(error  instanceof Error )
+              {
+                console.error('Login error:', error.message || error);
+              }
           } finally {
             setLoading(false);
           }
@@ -77,7 +81,7 @@ export  default function LoginPage(){
       />      
       <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200" onClick={onLogin}>{buttonDisabled?"No Login":"Login"}</button>
       <p className="text-sm text-center mt-4">
-                Don't have an account?{' '}
+                {"Don't have an account"}?{' '}
             <Link href="/signup" className="text-blue-600 hover:underline font-medium">
                  Sign Up
             </Link>
