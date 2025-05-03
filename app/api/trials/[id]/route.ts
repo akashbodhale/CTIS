@@ -14,7 +14,7 @@ import { NextRequest, NextResponse } from "next/server";
 //     location: { type: String },
 //   }
 
-export async function GET(request: NextRequest,{params}:{params:{id:string}}) {
+export async function GET(request: NextRequest,{ params }: { params: Promise<{ id: string }>}) {
   const { id } = await params;
   await connectMongoDB();
   const trials = await Trial.findOne({ id: Number(id) });
@@ -47,7 +47,7 @@ export async function GET(request: NextRequest,{params}:{params:{id:string}}) {
 // }
 
 
-export async function PUT(request: NextRequest,{params}:{params:{id:string}})
+export async function PUT(request: NextRequest,{ params }: { params: Promise<{ id: string }>})
 {
     const { id } = await params;
     await connectMongoDB();
