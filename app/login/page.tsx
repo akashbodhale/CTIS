@@ -30,7 +30,7 @@ export  default function LoginPage(){
           try {
             setLoading(true);
         
-            const response = await fetch(`http://localhost:3000/api/login`, {
+            const response = await fetch(`https://cis-git-feature1-akash-bodhales-projects.vercel.app/api/login`, {
               method: 'POST',
               headers: { 'Content-Type': 'application/json' },
               body: JSON.stringify(user),
