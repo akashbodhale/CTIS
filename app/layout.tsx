@@ -1,7 +1,11 @@
+// app/layout.tsx or app/layout.js
+'use client';
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Bar from "./Bar";
+import { usePathname } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,12 +27,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const pathname = usePathname();
+  const hideBar = pathname === "/login" || pathname === "/signup";
+
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Bar />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        {!hideBar && <Bar />}
         {children}
       </body>
     </html>
