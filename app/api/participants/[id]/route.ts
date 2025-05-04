@@ -45,6 +45,29 @@ export async function PUT(request: NextRequest,{ params }: { params: Promise<{ i
 
 }
 
+export async function POST(request: NextRequest,{ params }: { params: Promise<{ id: string }>})
+{
+    const { id } = await params;
+    await connectMongoDB();
+    const body= await request.json();
+    const updatedparticipant = await Participant.findOneAndUpdate(
+      { id: Number(id) },   
+      { $set: body },        
+      { new: true }          
+    );
+
+    if( updatedparticipant != null){
+
+        return new Response(JSON.stringify(updatedparticipant), {
+            status: 201,
+            headers: {
+              'Content-Type': 'application/json',
+            }
+          });
+    }
+
+}
+
 // export async function DELETE(request: NextRequest,{params}:{params:{id:number}})
 // {
 //     const message: string ='This is Expensive operation at this moment can\'t do it in this feature';
