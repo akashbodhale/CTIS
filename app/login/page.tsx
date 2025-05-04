@@ -60,14 +60,14 @@ export  default function LoginPage(){
             <div className="bg-white shadow-md rounded-lg p-8 w-full max-w-md">
             <h1 className="text-3xl font-bold text-gray-800 mb-6">{loading? "processing":"Login"}</h1>
 
-            <label htmlFor="username" className="block text-gray-700 font-semibold mb-1">Username</label>
+            <label htmlFor="username" className="block text-gray-700  font-semibold mb-1">Username</label>
             <input
                 type="text"
                 id="username"
                 value={user.username}
                 placeholder="Enter your username"
                 onChange={(e) => setUser({ ...user, username: e.target.value })}
-                className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 mb-4 border border-gray-300 bg-transparent rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
       <label htmlFor="password" className="block text-gray-700 font-semibold mb-1">Password</label>
@@ -77,7 +77,7 @@ export  default function LoginPage(){
         value={user.password}
         placeholder="Enter your password"
         onChange={(e) => setUser({ ...user, password: e.target.value })}
-        className="w-full px-4 py-2 mb-4 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full px-4 py-2 mb-4 border border-gray-300 bg-transparent rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
       />      
       <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200" onClick={onLogin}>{buttonDisabled?"No Login":"Login"}</button>
       <p className="text-sm text-center mt-4">
