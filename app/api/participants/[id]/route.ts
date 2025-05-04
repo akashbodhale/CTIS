@@ -50,20 +50,22 @@ export async function POST(request: NextRequest,{ params }: { params: Promise<{ 
     const { id } = await params;
     await connectMongoDB();
     const body= await request.json();
-    const updatedparticipant = await Participant.findOneAndUpdate(
-      { id: Number(id) },   
-      { $set: body },        
-      { new: true }          
-    );
 
-    if( updatedparticipant != null){
-
-        return new Response(JSON.stringify(updatedparticipant), {
-            status: 201,
-            headers: {
-              'Content-Type': 'application/json',
-            }
-          });
+    try {
+      const newParticipant = await Participant.create(body);
+  
+      return new Response(JSON.stringify(newParticipant), {
+        status: 201,
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+    } catch (error) {
+      console.error('Error creating participant:', error);
+  
+      return new Response('Failed to create participant', {
+        status: 500,
+      });
     }
 
 }
