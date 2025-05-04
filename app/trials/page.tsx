@@ -110,7 +110,7 @@ export default function Trials() {
       });
     } else {
       const maxId = trials.length > 0 ? Math.max(...trials.map((t) => t.id)) : 0;
-      const newTrial = { ...formData, id: maxId + 1 };
+      const newTrial = { ...formData, id: maxId + 1,researcherId:1};
       await fetch('https://ctis-dged.vercel.app/api/trials', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
