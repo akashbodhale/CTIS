@@ -1,0 +1,14 @@
+{
+  "/api/login/route": "/api/login",
+  "/_not-found/page": "/_not-found",
+  "/api/signup/route": "/api/signup",
+  "/api/trials/[id]/route": "/api/trials/[id]",
+  "/api/trials/route": "/api/trials",
+  "/api/participants/[id]/route": "/api/participants/[id]",
+  "/favicon.ico/route": "/favicon.ico",
+  "/login/page": "/login",
+  "/page": "/",
+  "/trials/page": "/trials",
+  "/participants/[id]/page": "/participants/[id]",
+  "/signup/page": "/signup"
+}
