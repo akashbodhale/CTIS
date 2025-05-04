@@ -1,5 +1,6 @@
 'use client';
 import Link from 'next/link';
+import  { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
 type TD = {
@@ -95,9 +96,19 @@ export default function Trials() {
     setEditingId(trial.id);
     setShowForm(true);
   }
+  const router = useRouter();
+  async function  Back() {
+    try
+    {
+      const response = await fetch(`https://ctis-dged.vercel.app/api/logout`)
+      router.push("/login")
 
-  function Back() {
-    window.history.back();
+    }
+    catch(error)
+    {
+      if (error instanceof Error)
+        console.log("why am i failed beacuse of : ",error.message)
+    }
   }
 
   async function handleSave() {
@@ -131,7 +142,7 @@ export default function Trials() {
           onClick={Back}
           className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
         >
-          ← Back
+          ← logout
         </button>
         <h1 className="text-3xl">Trial Data</h1>
         <button
