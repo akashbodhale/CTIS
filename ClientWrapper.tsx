@@ -6,7 +6,7 @@ import Bar from "./app/Bar";
 
 export default function ClientWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const hideBar = pathname === "/login" || pathname === "/signup";
+  const hideBar = pathname === "/login"||pathname === "/" || pathname === "/signup";
 
   return (
     <>
