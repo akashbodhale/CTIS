@@ -11,7 +11,7 @@ export async function POST(request:NextRequest){
 
     try
     {
-        connectMongoDB();
+        await connectMongoDB();
         const reqBody=await request.json();
         const{username,password}=reqBody;
 
@@ -47,6 +47,7 @@ export async function POST(request:NextRequest){
     }
     catch(error: unknown)
     {
+        const errMsg = error instanceof Error ? error.message : "Internal server error";
         return NextResponse.json({error:error},{status:500})
     }
 

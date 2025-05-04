@@ -38,7 +38,7 @@ export  default function LoginPage(){
         
             if (!response.ok) {
               const errorData = await response.json();
-              console.log('Signup failed:', errorData);
+              console.log('Login failed:', errorData);
               return("user not exist");
             }
         
