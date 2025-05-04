@@ -90,7 +90,7 @@ export default function ParticipantPage({ params }: { params: Promise<{ id: stri
       const maxId = participants.length > 0 ? Math.max(...participants.map(p => p.id)) : 0;
       const newParticipant = { ...payload, id: maxId + 1 };
   
-      await fetch('https://ctis-dged.vercel.app/api/participants', {
+      await fetch(`https://ctis-dged.vercel.app/api/participants/${participantId}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newParticipant),

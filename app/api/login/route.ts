@@ -4,13 +4,14 @@ import bcrypt from 'bcryptjs';
 import { NextRequest, NextResponse } from 'next/server';
 import jwt from "jsonwebtoken";
 
-connectMongoDB();
+
 
 
 export async function POST(request:NextRequest){
 
     try
     {
+        connectMongoDB();
         const reqBody=await request.json();
         const{username,password}=reqBody;
 
