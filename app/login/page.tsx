@@ -67,7 +67,7 @@ export  default function LoginPage(){
                 value={user.username}
                 placeholder="Enter your username"
                 onChange={(e) => setUser({ ...user, username: e.target.value })}
-                className="w-full px-4 py-2 mb-4 border border-gray-300 bg-transparent rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-2 mb-4 border border-gray-300 dark:text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
 
       <label htmlFor="password" className="block text-gray-700 font-semibold mb-1">Password</label>
@@ -77,7 +77,7 @@ export  default function LoginPage(){
         value={user.password}
         placeholder="Enter your password"
         onChange={(e) => setUser({ ...user, password: e.target.value })}
-        className="w-full px-4 py-2 mb-4 border border-gray-300 bg-transparent rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+        className="w-full px-4 py-2 mb-4 border border-gray-300 dark:text-white rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
       />      
       <button className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition duration-200" onClick={onLogin}>{buttonDisabled?"No Login":"Login"}</button>
       <p className="text-sm text-center mt-4">
