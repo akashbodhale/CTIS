@@ -100,7 +100,7 @@ export default function Trials() {
   async function  Back() {
     try
     {
-      const response = await fetch(`https://ctis-dged.vercel.app/api/logout`)
+      await fetch(`https://ctis-dged.vercel.app/api/logout`)
       router.push("/login")
 
     }
