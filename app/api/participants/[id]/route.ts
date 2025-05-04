@@ -45,7 +45,7 @@ export async function PUT(request: NextRequest,{ params }: { params: Promise<{ i
 
 }
 
-export async function POST(request: NextRequest,{ params }: { params: Promise<{ id: string }>})
+export async function POST(request: NextRequest)
 {
     // const { id } = await params;
     await connectMongoDB();
