@@ -63,7 +63,7 @@ export default function Trials() {
       phase: '',
       status: '',
       startDate: new Date(),
-      endDate: new Date(),
+      endDate: new Date('3025-01-01'),
       location: '',
     });
     setIsEditing(false);
