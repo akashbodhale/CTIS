@@ -32,6 +32,8 @@ export default function Trials() {
     endDate: new Date(),
     location: '',
   });
+  const today = new Date().toISOString().split('T')[0];
+  const minEndDate = formData.startDate.toISOString().split('T')[0];
 
   useEffect(() => {
     fetchTrials();
@@ -163,8 +165,8 @@ export default function Trials() {
             <input className="border p-2" name="treatment" placeholder="Treatment" value={formData.treatment} onChange={handleChange} />
             <input className="border p-2" name="phase" placeholder="Phase" value={formData.phase} onChange={handleChange} />
             <input className="border p-2" name="status" placeholder="Status" value={formData.status} onChange={handleChange} />
-            <input className="border p-2" name="startDate" type="date" value={formData.startDate.toISOString().split('T')[0]} onChange={handleChange} />
-            <input className="border p-2" name="endDate" type="date" value={formData.endDate.toISOString().split('T')[0]} onChange={handleChange} />
+            <input className="border p-2" name="startDate" type="date" min={today} value={formData.startDate.toISOString().split('T')[0]} onChange={handleChange} />
+            <input className="border p-2" name="endDate" type="date" min={minEndDate} value={formData.endDate.toISOString().split('T')[0]} onChange={handleChange} />
             <input className="border p-2 col-span-2" name="location" placeholder="Location" value={formData.location} onChange={handleChange} />
           </div>
           <button onClick={handleSave} className="bg-green-600 hover:bg-green-700 text-white py-2 px-6 rounded mt-4">
