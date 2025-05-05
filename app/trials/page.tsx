@@ -12,7 +12,7 @@ type TD = {
   phase: string;
   status: string;
   startDate: Date;
-  endDate: null;
+  endDate: Date;
   location: string;
 };
 
@@ -29,7 +29,7 @@ export default function Trials() {
     phase: '',
     status: '',
     startDate: new Date(),
-    endDate: null,
+    endDate: new Date('3025-01-01'),
     location: '',
   });
   const today = new Date().toISOString().split('T')[0];
@@ -42,18 +42,7 @@ export default function Trials() {
   async function fetchTrials() {
     const res = await fetch('https://ctis-dged.vercel.app/api/trials');
     const data = await res.json();
-    // const data= [{
-    //     "id": 1,
-    //     "title": "COVID-19 Vaccine Trialssss",
-    //     "description": "Testing efficacy of new COVID-19 vaccine.",
-    //     "condition": "COVID-19",
-    //     "treatment": "Vaccine ABC",
-    //     "phase": "Phase III",
-    //     "status": "Ongoing",
-    //     "startDate": new Date("2024-01-01T00:00:00.000Z"),
-    //     "endDate": new Date("2024-12-31T00:00:00.000Z"),
-    //    "location": "New York City"
-    //   }];
+
     setTrials(data);
   }
 
