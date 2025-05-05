@@ -12,7 +12,7 @@ type TD = {
   phase: string;
   status: string;
   startDate: Date;
-  endDate: Date;
+  endDate: null;
   location: string;
 };
 
@@ -29,7 +29,7 @@ export default function Trials() {
     phase: '',
     status: '',
     startDate: new Date(),
-    endDate: new Date(),
+    endDate: null,
     location: '',
   });
   const today = new Date().toISOString().split('T')[0];
