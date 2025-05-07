@@ -1,4 +1,5 @@
 ## CTIS
+<img width="1710" alt="Screenshot 2025-05-06 at 9 29 07 PM" src="https://github.com/user-attachments/assets/ec53667f-31ac-4710-a4df-31faeacb596a" />
 
 
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
