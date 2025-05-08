@@ -13,6 +13,7 @@ export default function LoginPage() {
   const router = useRouter();
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const [loading, setLoading] = useState(false);
+  const[message,setMessage]= useState(false);
 
   useEffect(() => {
     if (user.password.length > 0 && user.username.length > 0) {
@@ -35,6 +36,7 @@ export default function LoginPage() {
       if (!response.ok) {
         const errorData = await response.json();
         console.log('Login failed:', errorData);
+        setMessage(true);
         return "User does not exist";
       }
 
@@ -57,7 +59,7 @@ export default function LoginPage() {
           <h1 className="text-3xl font-bold text-gray-800 mb-6">
             {loading ? "Processing..." : "Login"}
           </h1>
-
+          {message ? <h1>username or passoword is wrong.</h1> : null}
           <label htmlFor="username" className="block text-gray-700 font-semibold mb-1">Username</label>
           <input
             type="text"
