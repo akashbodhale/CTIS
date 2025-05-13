@@ -62,5 +62,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 <img width="1710" alt="Screenshot 2025-05-06 at 9 31 24 PM" src="https://github.com/user-attachments/assets/f8c97dfc-c96b-475f-8520-c40efb7c7ba5" />
 
-Note: In clinical trial project Delete operation mostly prohibited that is why I just notify messgae when any one trying to delete record.
+### Note: In clinical trial project Delete operation mostly prohibited that is why I just notify messgae when any one trying to delete record.
 
+<img width="1710" alt="Screenshot 2025-05-12 at 9 27 08 PM" src="https://github.com/user-attachments/assets/c2ff7b8f-4817-4b14-98b6-4bf8e6219965" />
